@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocation API Example</title>
+</head>
+<body>
+  
+  <h1>Geolocation API Example</h1>
+  
+  <p>Your location is Longitude: <span id="long"> </span> & Latititude:<span id="lat"></span></p>
+  
+  <script>
+    geo = navigator.geolocation
+
+    if ('geolocation' in navigator) {
+      geo.getCurrentPosition((position) => {
+      let long = position.coords.longitude
+      let lat = position.coords.latitude
+      console.log('Geo is available')
+      document.getElementById('lat').textContent = lat.toFixed(2)
+      document.getElementById('long').textContent = long.toFixed(2)
+      })
+    } else {
+      console.log('Geo is unavailable')
+    }
+  </script>
+</body>
+</html>
